@@ -9,23 +9,23 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 var articles = {
-    'article-one':{
-                    title : 'Article One| SomasundarKr',
-                    heading: 'Article One',
-                    date:'10/10/2016',
-                    content:'<p> This is the content of the first page of the Article </p>'
+    `article-one`:{
+                    title : `Article One| SomasundarKr`,
+                    heading: `Article One`,
+                    date:`10/10/2016`,
+                    content:`<p> This is the content of the first page of the Article </p>`
     },
-    'article-two':{
-                    title : 'Article Two| SomasundarKr',
-                    heading: 'Article Two',
-                    date:'15/10/2016',
-                    content:'<p> This is the content for My Second Article </p>'
+    `article-two`:{
+                    title : `Article Two| SomasundarKr`,
+                    heading: `Article Two`,
+                    date:`15/10/2016`,
+                    content:`<p> This is the content for My Second Article </p>`
     },
-    'article-Three':{
-                    title : 'Article One| SomasundarKr',
-                    heading: 'Article Three',
-                    date:'19/10/2016',
-                    content:'<p> This is the content for My Third Webapp Article </p>'
+    `article-three`:{
+                    title : `Article One| SomasundarKr`,
+                    heading: `Article Three`,
+                    date:`19/10/2016`,
+                    content:`<p> This is the content for My Third Webapp Article </p>`
     }
 };
 function createTemplate(data){
@@ -34,7 +34,8 @@ function createTemplate(data){
     var heading = data.heading;
     var content = data.content;
         
-var htmlTemplate = '<html>
+var htmlTemplate =`
+<html>
                             <head>
                             <title> 
                                     ${title} 
@@ -55,7 +56,7 @@ var htmlTemplate = '<html>
                             </div>
                             </div>
                             </body>
-                            </html>';
+                            </html>`;
 return htmlTemplate;    
 }
 app.get('/:articleName', function (req,res){
