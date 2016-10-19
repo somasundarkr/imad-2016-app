@@ -20,10 +20,10 @@ body {
 }
 
 .container {
-    max-width:800px;
-    margin:0 auto;
+    max-width: 800px;
+    margin: 0 auto;
     color: #404040;
-    font-family:sans-serif;
-    padding-left:20px;
-    padding-right:20px;
+    font-family: sans-serif;
+    padding-left: 20px;
+    padding-right: 20px;
 }
