@@ -13,7 +13,7 @@ var articles = {
                     title : `Article One| SomasundarKr`,
                     heading: `Article One`,
                     date:`10/10/2016`,
-                    content:`<p> This is the content of the first page of the Article </p>`
+                    content:`<p> This is the content of my First web app Article </p>`
     },
     'article-two':{
                     title : `Article Two| SomasundarKr`,
