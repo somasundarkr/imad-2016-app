@@ -9,19 +9,19 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 var articles = {
-    `article-one`:{
+    'article-one':{
                     title : `Article One| SomasundarKr`,
                     heading: `Article One`,
                     date:`10/10/2016`,
                     content:`<p> This is the content of the first page of the Article </p>`
     },
-    `article-two`:{
+    'article-two':{
                     title : `Article Two| SomasundarKr`,
                     heading: `Article Two`,
                     date:`15/10/2016`,
                     content:`<p> This is the content for My Second Article </p>`
     },
-    `article-three`:{
+    'article-three':{
                     title : `Article One| SomasundarKr`,
                     heading: `Article Three`,
                     date:`19/10/2016`,
