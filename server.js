@@ -48,14 +48,14 @@ var htmlTemplate =`
                             <div><a href = "/">Home</a>
                             </div>
                             <hr/>
-                            <h3>${heading}</h3>
+                                <h3>${heading}</h3>
                             <hr/>
-                            <div>${date}</div>
+                                <div>${date}</div>
                             <hr/>
-                            <div> ${content} </div>
+                                <div> ${content} </div>
             </div>
                             </body>
-                            </html>`;
+</html>`;
 return htmlTemplate;    
 }
 app.get('/:articleName', function (req,res){
