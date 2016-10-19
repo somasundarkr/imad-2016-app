@@ -13,13 +13,13 @@ var articles = {
                     title : `Article One| SomasundarKr`,
                     heading: `Article One`,
                     date:`10/10/2016`,
-                    content: `<p> This is the content of my First web app Article </p>'
+                    content: `<p> This is the content of my First web app Article </p>`
     },
     'article-two':{
                     title : `Article Two| SomasundarKr`,
                     heading: `Article Two`,
                     date:`15/10/2016`,
-                    content:`<p> This is the content for My Second Article </p>`
+                    content: `<p> This is the content for My Second Article </p>`
     },
     'article-three':{
                     title : `Article One| SomasundarKr`,
