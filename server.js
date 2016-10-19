@@ -40,7 +40,7 @@ var htmlTemplate =`
                             <title> 
                                     ${title} 
                             </title>
-                            <meta name = "viewport" content = "width=device-width, initial-scale = 1/>
+                            <meta name = "viewport" content = "width=device-width, initial-scale = 1 />
                             <link href = "/ui/style.css" rel = "stylesheet" />
                             </head>
                             <body>
@@ -54,6 +54,7 @@ var htmlTemplate =`
                             <div>
                                     ${date}
                             </div>
+                            <div> ${content} </div>
                             </div>
                             </body>
                             </html>`;
