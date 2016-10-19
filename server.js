@@ -49,7 +49,9 @@ var htmlTemplate =`
                             </div>
                             <hr/>
                             <h3>${heading}</h3>
+                            <hr/>
                             <div>${date}</div>
+                            <hr/>
                             <div> ${content} </div>
             </div>
                             </body>
