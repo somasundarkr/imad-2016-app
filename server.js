@@ -57,6 +57,13 @@ var htmlTemplate =`
                                 <div>${date}</div>
                             <hr/>
                                 <div> ${content} </div>
+                                <label>Enter comments below</label></br>
+                                 <textarea name='comment' id='comment'></textarea><br />
+                                  <input type="submit" id="comment_btn" value="Submit" class="btn btn-warning"></input>
+                                  <hr>
+                                  <p>Comments :<br>
+                                    <span id="comments"></span>
+                                  </p>
             </div>
                             </body>
 </html>
