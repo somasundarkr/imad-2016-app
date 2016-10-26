@@ -70,14 +70,15 @@ app.get('/counter', function (req, res) {
    res.send(counter.toString());
 });
 
-var names = [];
-app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
-  // Get the name from the request
-  var name = req.query.name;
-  
-  names.push(name);
-  // JSON: Javascript Object Notation
-  res.send(JSON.stringify(names));
+var comments=[];
+app.get('/submit_comment',function(req,res){
+    //to get the comments
+ var comment=req.query.comment;
+ comments.push(comment);
+ console.log('comments is: ',comments);
+ res.send(JSON.stringify(comments));
+
+    //to render those comments on the page
 });
 
 app.get('/:articleName', function (req,res){
