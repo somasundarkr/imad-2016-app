@@ -64,12 +64,28 @@ var htmlTemplate =`
 return htmlTemplate;    
 }
 
-var counter = 0;
-app.get('/counter', function (req, res) {
-   counter = counter + 1;
-   res.send(counter.toString());
+
+var counter=0;
+app.get('/counter', function(req,res){
+    counter = counter+1;
+    //we can only send a string as a response
+    //and that's why we convert  it to string using toString()
+    res.send(counter.toString());
 });
 
+var names=[];
+app.get('/submit-name',function(req,res){
+    //get the name from request object
+     //this is for the ?name=something part
+    //express gets that part by using req.query.name
+    var name=req.query.name;
+    console.log('name is: ',name);
+  //we could use req.params.name if the url was /submit-name/:name
+
+    names.push(name);
+    console.log('names is: ',names);
+    res.send(JSON.stringify(names));
+});
 var comments=[];
 app.get('/submit_comment',function(req,res){
     //to get the comments
