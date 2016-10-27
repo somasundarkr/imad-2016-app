@@ -74,7 +74,7 @@ var htmlTemplate =`
                                           		<br>
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
-                                              				<button class="btn pull-right" type="submit">Send</button>
+                                              				<button class="btn pull-right" type="submit">Publish</button>
                                             			</div>
                                           		</div>
                                         	</div>
