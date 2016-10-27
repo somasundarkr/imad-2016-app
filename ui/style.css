@@ -28,7 +28,7 @@ body {
     height: 200px;
 }
 
-body{ background:#728EB2; color:#FFF; }
+/*body{ background:#728EB2; color:#FFF; }*/
 /*( 'box-sizing' will not work with this code )*/
 textarea{  
   /* box-sizing: padding-box; */
