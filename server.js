@@ -57,36 +57,39 @@ var htmlTemplate =`
                                 <div>${date}</div>
                             <hr/>
                                 <div> ${content} </div>
-                             <div id="page-wrapper">
-                        	  <h1>Contact Form Demo</h1>
-                        
-                        	  <div id="form-messages"></div>
-                        		
-                        		<form id="ajax-contact" method="post" action="mailer.php">
-                        			<div class="field">
-                        				<label for="name">Name:</label>
-                        				<input type="text" id="name" name="name" required>
-                        			</div>
-                        <br>
-                        			<div class="field">
-                        				<label for="email">Email:</label>
-                        				<input type="email" id="email" name="email" required>
-                        			</div>
-                        <br>
-                        			<div class="field">
-                        				<label for="message">Message:</label>
-                        				<textarea id="message" name="message" required></textarea>
-                        			</div>
-                        <br>
-                        			<div class="field">
-                        				<button type="submit">Send</button>
-                        			</div>
-                        		</form>
-	</div>
-	
-	<script src="jquery-2.1.0.min.js"></script>
-	<script src="app.js"></script>
-                                      <br>	
+                               // send form data with JavaScript
+                                if( window.FormData) {
+                                
+                                	var appendComment = function (nameValue, commentValue) {
+                                		var comment = document.createElement('li');
+                                		var commentName = document.createElement('h4');
+                                		var commentComment = document.createElement('p');
+                                		var commentWrapper = document.querySelector('.comments');
+                                		commentName.innerText = nameValue;
+                                		commentComment.innerText = commentValue;
+                                		nameValue ? comment.appendChild(commentName) : '';
+                                		comment.appendChild(commentComment);
+                                		commentWrapper.appendChild(comment);
+                                	};
+                                
+                                	form.addEventListener('submit', function (ev) {
+                                		var formData = new FormData(form);
+                                		commentValue = commentArea.value;
+                                		nameValue = nameInput.value;
+                                
+                                		var xhr = new XMLHttpRequest();
+                                		// save the comment in the database
+                                		xhr.open('POST', './save', true);
+                                		xhr.onload = function () {
+                                			appendComment(nameValue, commentValue);
+                                		};
+                                		xhr.send(formData);
+                                
+                                		// always call preventDefault at the end, see: http://molily.de/javascript-failure/
+                                		ev.preventDefault();
+                                	});
+                                }
+                                  <br>	
                 </div>
                             </body>
 </html>
