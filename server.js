@@ -57,28 +57,35 @@ var htmlTemplate =`
                                 <div>${date}</div>
                             <hr/>
                                 <div> ${content} </div>
-                                <!-- Container (Contact Section) -->
-                                    <div id="contact" class="container">
-                                      <h3 class="text-center">Contact</h3>
-                                      <p class="text-center"><em>We value your feed back!</em></p>
-                                         	<div class="col-md-12">
-                                          		<div class="row">
-                                            			<div class="col-sm-6 form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                                           			 </div>
-                                           			 <div class="col-sm-6 form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                                            			</div>
-                                         		 </div>
-                                     <textarea class="form-control" id="submit_btn" name="comments" placeholder="Comment" rows="5"></textarea>
-                                          		<br>
-                                          		<div class="row">
-                                            			<div class="col-md-12 form-group">
-                                              				<button class="btn pull-right" type="submit">Send</button>
-                                            			</div>
-                                          		</div>
-                                        	</div>
-                                      </div>
+                             <div id="page-wrapper">
+                        	  <h1>Contact Form Demo</h1>
+                        
+                        	  <div id="form-messages"></div>
+                        		
+                        		<form id="ajax-contact" method="post" action="mailer.php">
+                        			<div class="field">
+                        				<label for="name">Name:</label>
+                        				<input type="text" id="name" name="name" required>
+                        			</div>
+                        
+                        			<div class="field">
+                        				<label for="email">Email:</label>
+                        				<input type="email" id="email" name="email" required>
+                        			</div>
+                        
+                        			<div class="field">
+                        				<label for="message">Message:</label>
+                        				<textarea id="message" name="message" required></textarea>
+                        			</div>
+                        
+                        			<div class="field">
+                        				<button type="submit">Send</button>
+                        			</div>
+                        		</form>
+	</div>
+	
+	<script src="jquery-2.1.0.min.js"></script>
+	<script src="app.js"></script>
                                       <br>	
                 </div>
                             </body>
