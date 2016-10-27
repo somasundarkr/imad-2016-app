@@ -72,7 +72,7 @@ var htmlTemplate =`
                                           		
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
-                                              				<button class="btn pull-right" type="submit">Publish</button>
+                                              				<button class="btn pull-right" type="/submit_comment">Publish</button>
                                             			</div>
                                             			
                                                           <p>Comments :<br>
