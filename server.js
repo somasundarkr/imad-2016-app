@@ -59,7 +59,7 @@ var htmlTemplate =`
                                 <div> ${content} </div>
                                 <!-- Container (Contact Section) -->
                                     <div id="contact" class="container">
-                                      <h3 class="text-center">Contact</h3>
+                                      <h3 class="text-center">Enter your Comments</h3>
                                       <p class="text-center"><em>We value your feed back!</em></p>
                                          	<div class="col-md-12">
                                           		
