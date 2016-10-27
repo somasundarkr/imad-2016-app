@@ -68,17 +68,18 @@ var htmlTemplate =`
                                            			 </div>
                                            			  
                                          		 </div>
-                                     <textarea class="form-control" id="comment" name="comments" placeholder="Comment" rows="5"></textarea>
+                                     <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="5"></textarea>
                                           		
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
-                                              				<button class="btn pull-right" type="/submit_comment">Publish</button>
+                                              				<button class="btn pull-right" type="submit" id="comment_btn" value="Submit" class="btn btn-warning" >Publish</button>
+                                              				
+                                                                  <p>Comments :<br>
+                                                                    <span id="comments"></span>
+                                                                  </p>
                                             			</div>
                                             			
-                                                          <p>Comments :<br>
-                                                            <span id="comments"></span>
-                                                          </p>
-                                          		</div>
+                                                    </div>
                                         	</div>
                                       </div>
                                       <br>	
