@@ -57,7 +57,29 @@ var htmlTemplate =`
                                 <div>${date}</div>
                             <hr/>
                                 <div> ${content} </div>
-                               <textarea rows='1' placeholder='Auto-Expanding Textarea'></textarea>
+                                <!-- Container (Contact Section) -->
+                                    <div id="contact" class="container">
+                                      <h3 class="text-center">Contact</h3>
+                                      <p class="text-center"><em>We value your feed back!</em></p>
+                                         	<div class="col-md-12">
+                                          		<div class="row">
+                                            			<div class="col-sm-6 form-group">
+                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                                           			 </div>
+                                           			 <div class="col-sm-6 form-group">
+                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                                            			</div>
+                                         		 </div>
+                                     <textarea class="form-control" id="submit_btn" name="comments" placeholder="Comment" rows="5"></textarea>
+                                          		<br>
+                                          		<div class="row">
+                                            			<div class="col-md-12 form-group">
+                                              				<button class="btn pull-right" type="submit">Send</button>
+                                            			</div>
+                                          		</div>
+                                        	</div>
+                                      </div>
+                                      <br>	
                 </div>
                             </body>
 </html>
@@ -65,19 +87,7 @@ var htmlTemplate =`
 return htmlTemplate;    
 }
 
-var textarea = document.querySelector('textarea');
 
-textarea.addEventListener('keydown', autosize);
-             
-function autosize(){
-  var el = this;
-  setTimeout(function(){
-    el.style.cssText = 'height:auto; padding:0';
-    // for box-sizing other than "content-box" use:
-    // el.style.cssText = '-moz-box-sizing:content-box';
-    el.style.cssText = 'height:' + el.scrollHeight + 'px';
-  },0);
-}
 
 
 app.get('/:articleName', function (req,res){
