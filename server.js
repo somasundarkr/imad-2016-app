@@ -66,9 +66,7 @@ var htmlTemplate =`
                                             			<div class="col-sm-6 form-group">
                                     <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
                                            			 </div>
-                                           			  <div class="col-sm-6 form-group">
-                                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                                            			</div>
+                                           			  
                                          		 </div>
                                      <textarea class="form-control" id="comment" name="comments" placeholder="Comment" rows="5"></textarea>
                                           		
