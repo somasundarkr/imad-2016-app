@@ -70,7 +70,7 @@ var htmlTemplate =`
                                     <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
                                             			</div>
                                          		 </div>
-                                     <textarea class="form-control" id="submit_comment" name="comments" placeholder="Comment" rows="5"></textarea>
+                                     <textarea class="form-control" id="submit_btn" name="comments" placeholder="Comment" rows="5"></textarea>
                                           		<br>
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
