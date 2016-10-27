@@ -66,11 +66,11 @@ var htmlTemplate =`
                                             			<div class="col-sm-6 form-group">
                                     <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
                                            			 </div>
-                                           			 /*<div class="col-sm-6 form-group">
+                                           			 /* <div class="col-sm-6 form-group">
                                     <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
                                             			</div> */
                                          		 </div>
-                                     <textarea class="form-control" id="submit_btn" name="comments" placeholder="Comment" rows="5"></textarea>
+                                     <textarea class="form-control" id="comment" name="comments" placeholder="Comment" rows="5"></textarea>
                                           		<br>
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
@@ -87,7 +87,16 @@ var htmlTemplate =`
 return htmlTemplate;    
 }
 
+var comments=[];
+app.get('/submit_comment',function(req,res){
+    //to get the comments
+ var comment=req.query.comment;
+ comments.push(comment);
+// console.log('comments is: ',comments);
+ res.send(JSON.stringify(comments));
 
+    //to render those comments on the page
+});
 
 
 app.get('/:articleName', function (req,res){
