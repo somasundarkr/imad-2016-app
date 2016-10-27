@@ -62,13 +62,12 @@ var htmlTemplate =`
                                       <h3 class="text-center">Contact</h3>
                                       <p class="text-center"><em>We value your feed back!</em></p>
                                          	<div class="col-md-12">
-                                          		<div class="row">
+                                          		
                                             			<div class="col-sm-6 form-group">
-                                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                                           			 </div>
+                                                         <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                                           	                </div>
                                            			  
-                                         		 </div>
-                                     <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="5"></textarea>
+                                         		          <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="5"></textarea>
                                           		
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
