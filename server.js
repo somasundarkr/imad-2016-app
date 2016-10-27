@@ -76,6 +76,10 @@ var htmlTemplate =`
                                             			<div class="col-md-12 form-group">
                                               				<button class="btn pull-right" type="submit">Publish</button>
                                             			</div>
+                                            			<hr>
+                                                          <p>Comments :<br>
+                                                            <span id="comments"></span>
+                                                          </p>
                                           		</div>
                                         	</div>
                                       </div>
