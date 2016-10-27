@@ -67,17 +67,17 @@ var htmlTemplate =`
                         				<label for="name">Name:</label>
                         				<input type="text" id="name" name="name" required>
                         			</div>
-                        
+                        <br>
                         			<div class="field">
                         				<label for="email">Email:</label>
                         				<input type="email" id="email" name="email" required>
                         			</div>
-                        
+                        <br>
                         			<div class="field">
                         				<label for="message">Message:</label>
                         				<textarea id="message" name="message" required></textarea>
                         			</div>
-                        
+                        <br>
                         			<div class="field">
                         				<button type="submit">Send</button>
                         			</div>
