@@ -68,11 +68,11 @@ var htmlTemplate =`
                                            	                </div>
                                            			  
                                          		          <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="5"></textarea>
-                                          		
+                                          		<hr/>
                                           		<div class="row">
                                             			<div class="col-md-12 form-group">
                                               				<button class="btn pull-right" type="submit" id="comment_btn" value="Submit" class="btn btn-warning" >Publish</button>
-                                              				
+                                              				<hr/>
                                                                   <p>Comments :<br>
                                                                     <span id="comments"></span>
                                                                   </p>
