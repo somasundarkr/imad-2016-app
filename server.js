@@ -1,123 +1,116 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var Pool = require('pg').Pool;
+
+var config = {
+    user: 'somasundarkr',
+    database: 'somasundarkr',
+    host: 'db.imad.hasura-app.io',
+    port: '5432',
+    password: process.env.DB_PASSWORD
+};
 
 var app = express();
 app.use(morgan('combined'));
 
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
-var articles = {
-    'article-one':{
-                    title : `Article One| SomasundarKr`,
-                    heading: `Article One`,
-                    date:`10/10/2016`,
-                    content: `<p> This is the content of my First web app Article </p>`
-    },
-    'article-two':{
-                    title : `Article Two| SomasundarKr`,
-                    heading: `Article Two`,
-                    date:`15/10/2016`,
-                    content: `<p> This is the content for My Second Article </p>`
-    },
-    'article-three':{
-                    title : `Article Three| SomasundarKr`,
-                    heading: `Article Three`,
-                    date:`19/10/2016`,
-                    content:`<p> This is the content for My Third Webapp Article </p>`
-    }
-};
-function createTemplate(data){
+function createTemplate (data) {
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
-        
-var htmlTemplate =`
-<html>
-                            <head>
-                            <title> 
-                                    ${title} 
-                            </title>
-                            <meta charset="utf-8">
-                             <meta name="viewport" content="width=device-width, initial-scale=1" />
-                              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                              <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-                              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                            <link href="/ui/style.css" rel="stylesheet" />
-                            </head>
-                            <body>
-             <div class = "container">
-                            <div><a href = "/">Home</a>
-                            </div>
-                            <hr/>
-                                <h3>${heading}</h3>
-                            <hr/>
-                                <div>${date}</div>
-                            <hr/>
-                                <div> ${content} </div>
-                                <!-- Container (Contact Section) -->
-                                    <div id="contact" class="container">
-                                      <h3 class="text-center">Enter your Comments</h3>
-                                      <p class="text-center"><em>We value your feed back!</em></p>
-                                         	<div class="col-md-12">
-                                          		
-                                            			<div class="col-sm-6 form-group">
-                                                         <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                                           	                </div>
-                                           			  
-                                         		          <textarea class="form-control" id="comment" name="comment" placeholder="Comment" rows="5"></textarea>
-                                          		<hr/>
-                                          		<div class="row">
-                                            			<div class="col-md-12 form-group">
-                                              				<button class="btn pull-right" type="submit" id="comment_btn" value="Submit" class="btn btn-warning" >Publish</button>
-                                              				<hr/>
-                                                                  <p>Comments :<br>
-                                                                    <span id="comments"></span>
-                                                                  </p>
-                                            			</div>
-                                            			
-                                                    </div>
-                                        	</div>
-                                      </div>
-                                      <br>	
-                </div>
-                            </body>
-</html>
-                            `;
-return htmlTemplate;    
+    
+    var htmlTemplate = `
+    <html>
+      <head>
+          <title>
+              ${title}
+          </title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link href="/ui/style.css" rel="stylesheet" />
+      </head> 
+      <body>
+          <div class="container">
+              <div>
+                  <a href="/">Home</a>
+              </div>
+              <hr/>
+              <h3>
+                  ${heading}
+              </h3>
+              <div>
+                  ${date.toDateString()}
+              </div>
+              <div>
+                ${content}
+              </div>
+          </div>
+      </body>
+    </html>
+    `;
+    return htmlTemplate;
 }
 
-var comments=[];
-app.get('/submit_comment',function(req,res){
-    //to get the comments
- var comment=req.query.comment;
- comments.push(comment);
-console.log('comments is: ',comments);
- res.send(JSON.stringify(comments));
-
-    //to render those comments on the page
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-
-app.get('/:articleName', function (req,res){
-    var articleName = req.params.articleName;
-    res.send(createTemplate(articles[articleName]));
+var pool = new Pool(config);
+app.get('/test-db', function (req, res) {
+   // make a select request
+   // return a response with the results
+   pool.query('SELECT * FROM test', function (err, result) {
+      if (err) {
+          res.status(500).send(err.toString());
+      } else {
+          res.send(JSON.stringify(result.rows));
+      }
+   });
 });
 
-app.get('/ui/main.js', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
+var counter = 0;
+app.get('/counter', function (req, res) {
+   counter = counter + 1;
+   res.send(counter.toString());
+});
+
+var names = [];
+app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
+  // Get the name from the request
+  var name = req.query.name;
+  
+  names.push(name);
+  // JSON: Javascript Object Notation
+  res.send(JSON.stringify(names));
+});
+
+app.get('/articles/:articleName', function (req, res) {
+  // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
+  pool.query("SELECT * FROM article WHERE title = $1", [req.params.articleName], function (err, result) {
+    if (err) {
+        res.status(500).send(err.toString());
+    } else {
+        if (result.rows.length === 0) {
+            res.status(404).send('Article not found');
+        } else {
+            var articleData = result.rows[0];
+            res.send(createTemplate(articleData));
+        }
+    }
+  });
 });
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
 
-app.get('/ui/madi.jpg', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.jpg'));
+app.get('/ui/main.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+app.get('/ui/madi.png', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+});
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
