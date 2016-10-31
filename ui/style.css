@@ -7,10 +7,12 @@
     padding-right: 20px;
 }
 
-body {
-    font-family: sans-serif;
-    margin-top: 60px;
+body{
+	background-image:url('https://pixabay.com/en/water-wave-macro-photography-1579915/');
+	background-size: cover;
+	background-repeat: none;
 }
+
 
 .center {
     text-align: center;
