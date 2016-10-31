@@ -89,7 +89,7 @@ app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
 
 app.get('/articles/:articleName', function (req, res) {
   // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
-  pool.query(("SELECT * FROM article WHERE title = $1"), [req.params.articleName], ("SELECT * FROM article WHERE title = $2"), [req.params.articleName], ("SELECT * FROM article WHERE title = $3"), [req.params.articleName],function (err, result) {
+  pool.query(("SELECT * FROM article WHERE title = $1"), [req.params.articleName], AND ("SELECT * FROM article WHERE title = $2"), [req.params.articleName],AND ("SELECT * FROM article WHERE title = $3"), [req.params.articleName],function (err, result) {
     if (err) {
         res.status(500).send(err.toString());
     } else {
