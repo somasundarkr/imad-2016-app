@@ -16,7 +16,7 @@ body{
   position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
-  text-align: center;
+  text-align: justify;
 }
 .section .img-responsive {
   margin: 0 auto;
@@ -27,7 +27,7 @@ body{
   font-weight: 100;
   padding: 10px 0;
   margin-bottom: 44px;
-  text-align: center;
+  text-align: justify;
   border-bottom: solid 1px #ccc;
   border-top: solid 1px #ccc;
   text-transform: uppercase;
