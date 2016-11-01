@@ -44,27 +44,6 @@ body{
 .section h2.title span {
   font-size: 40px;
 }
-@media (max-width: 767px) {
-  .section h2.title {
-    font-size: 40px;
-  }
-}
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 20px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
 
 .center {
     text-align: center;
