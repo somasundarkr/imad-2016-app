@@ -8,7 +8,7 @@
 }
 
 body{
-	background-image:url('/ui/pic1.jpg');
+	background-image:url("/ui/pic1.jpg");
 	background-size: cover;
 }
 .section {
@@ -40,5 +40,7 @@ body{
 .section h2.title span {
   font-size: 40px;
 }
-
+.navbar-nav>li>.active{
+  background-color:green;
+}
 
