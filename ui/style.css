@@ -8,7 +8,7 @@
 }
 
 body{
-	background-image:url('pic1.jpg');
+	background-image:url('/ui/pic1.jpg');
 	background-size: cover;
 }
 .section {
