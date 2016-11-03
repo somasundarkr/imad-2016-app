@@ -40,6 +40,10 @@ body{
  h4.title,h3.title {
   display: inline-block;
   text-align: justify;
+  border-bottom: solid 1px #ccc;
+  border-top: solid 1px #ccc;
+  text-transform: uppercase;
+  line-height: 1.2;
   }
 .section h2.title span {
   font-size: 40px;
