@@ -10,6 +10,7 @@
 body{
 	background-image:url("/ui/pic1.jpg");
 	background-size: cover;
+	text-align: justify;
 }
 .section {
   position: relative;
