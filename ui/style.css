@@ -36,7 +36,7 @@ body{
   text-transform: uppercase;
   line-height: 1.2;
 }
-.section h4,h3 {
+.section h4.title,h3.title {
   display: inline-block;
   text-align: justify;
   }
