@@ -17,6 +17,9 @@ body{
   padding-bottom: 60px;
   text-align: center;
 }
+.section p{
+    font-size:30px;
+}
 .section .img-responsive {
   margin: 0 auto;
   
