@@ -10,7 +10,7 @@ commentBtn.onclick = function (){
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.status === 200){
                 var comments = request.responseText;
-                console.log('comments1 is : ',comments);
+                console.log('comments is : ',comments);
                 comments = JSON.parse(comments);
                 console.log('comments is : ',comments);
                 var comment_list='';
@@ -25,7 +25,7 @@ commentBtn.onclick = function (){
         }
 
     };
-   request.open('GET', 'http://somasundarkr.imad.hasura-app.io/submit_comment?comment=' +comment, true);
+   request.open('GET', 'http://somasundarkr.imad.hasura-app.io/submit_comment?comment=' +comments, true);
    request.send(null);
 
 };//button onclick function ends
