@@ -51,7 +51,7 @@ function createTemplate (data) {
               <input type="submit" id="comment" value="Submit" class="btn btn-warning"></input>
               <hr>
               <p>Comments :<br>
-                <span id="comments"></span>
+                <ul id="comments"></ul>
               </p> 
               </div>
           </div>
