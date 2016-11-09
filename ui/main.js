@@ -4,7 +4,6 @@ commentBtn.onclick = function (){
     var comment = commentInput.value;
     console.log('comment is : ',comment);
     
-
     var request = new XMLHttpRequest();
 
     request.onreadystatechange = function(){
@@ -26,7 +25,7 @@ commentBtn.onclick = function (){
         }
 
     };
-   request.open('GET','http://somasundarkr.imad.hasura-app.io/submit_comment?comment='+comment,true);
+   request.open('GET', 'http://somasundarkr.imad.hasura-app.io/submit_comment?comment=' +comment, true);
    request.send(null);
 
 };//button onclick function ends
