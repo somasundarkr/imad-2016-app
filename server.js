@@ -48,7 +48,7 @@ function createTemplate (data) {
                 ${content}
               <label>Enter comments below</label></br>
              <textarea name='comments' id='comments'></textarea><br>
-              <input type="submit" id="comment_btn" value="Submit" class="btn btn-warning"></input>
+              <input type="submit" id="commentBtn" value="Submit" class="btn btn-warning"></input>
               <hr>
               <p>Comments :<br>
                 <span id="comments"></span>
