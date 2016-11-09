@@ -2,10 +2,11 @@
     max-width: 800px;
     margin: 0 auto;
     color: #404040;
-    font-family: 'TimesNewRoman' cursive;
-    font-size:22px;
-    padding-left: 20px;
-    padding-right: 20px;
+    font-family: 'TimesNewRoman';
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right:15px;
+    padding-bottom: 20px;
    }
 
 body{
