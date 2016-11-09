@@ -18,8 +18,8 @@ commentBtn.onclick = function () {
                     var t=i+1;
                     comment_list += '<p>' + 'comment '+t+': '+comments[i]+'</p>'+ '<hr>' ;
                 }
-                var commentz = document.getElementById('comments');
-                commentz.innerHTML = comment_list;
+                var ul = document.getElementById('comments');
+                ul.innerHTML = comment_list;
             }
             
         }
