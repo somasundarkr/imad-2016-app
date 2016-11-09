@@ -25,7 +25,7 @@ commentBtn.onclick = function (){
         }
 
     };
-   request.open('GET', 'http://somasundarkr.imad.hasura-app.io/submit_comment?comment=' +comments, true);
+   request.open('GET', 'http://somasundarkr.imad.hasura-app.io/submit_comment?comment=' +comment, true);
    request.send(null);
 
 };//button onclick function ends
