@@ -33,4 +33,47 @@ body{
  .section h2.title span {
   font-size: 40px;
 }
+.article{
+    
+    max-width: 800px;
+    margin:0 auto;
+}
+
+.full{
+    box-shadow: 2px 2px 12px 7px;
+    background-color: white;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right:15px;
+    padding-bottom: 20px;
+    
+}
+
+.para{
+	font-family: 'Aguafina Script', cursive;
+ font-size:22px;
+}
+
+#comments{
+	font-size:20px;
+	font-weight: bold;
+	font-family: 'Almendra SC', serif;
+	margin-bottom: 15px;
+	padding-bottom: 5px;
+ 
+}
+
+
+#comments p{
+	padding-top: 2px;
+	padding-bottom: 2px;
+	
+	margin-bottom: 1px;
+	margin-top: 1px;
+}
+
+#comments hr{
+	margin-top:1px;
+	margin-bottom: 1px;
+}
 
