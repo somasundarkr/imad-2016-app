@@ -47,7 +47,7 @@ function createTemplate (data) {
               <div class = "para">
                 ${content}
               <label>Enter comments below</label></br>
-             <textarea name='comment' id='comment'></textarea><br>
+             <textarea name='comments' id='comments'></textarea><br>
               <input type="submit" id="comment_btn" value="Submit" class="btn btn-warning"></input>
               <hr>
               <p>Comments :<br>
