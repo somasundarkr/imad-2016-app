@@ -44,8 +44,15 @@ function createTemplate (data) {
               <div>
                   ${date.toDateString()}
               </div>
-              <div>
+              <div class = "para">
                 ${content}
+              label>Enter comments below</label></br>
+             <textarea name='comment' id='comment'></textarea><br />
+              <input type="submit" id="comment_btn" value="Submit" class="btn btn-warning"></input>
+              <hr>
+              <p>Comments :<br>
+                <span id="comments"></span>
+              </p> 
               </div>
           </div>
       </body>
