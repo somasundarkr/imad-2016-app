@@ -52,6 +52,8 @@ function createTemplate (data) {
               <div>
                   ${date.toDateString()}
               </div>
+              <div class = para>
+              ${content}
               <h4>Comments</h4>
               <div id="comment_form">
               </div>
@@ -60,6 +62,7 @@ function createTemplate (data) {
               </div>
           </div>
           <script type="text/javascript" src="/ui/article.js"></script>
+          </div>
           </div>
       </body>
     </html>
