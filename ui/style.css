@@ -49,31 +49,19 @@ body{
     
 }
 
-.para{
-	font-family: 'Aguafina Script', cursive;
- font-size:22px;
+.comment{
+	margin-left: 15px;
+	padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
-#comments{
-	font-size:14px;
-	font-weight: bold;
-	font-family: 'Almendra SC', serif;
-	margin-bottom: 15px;
-	padding-bottom: 5px;
- 
+.commenter {
+    font-style: italic;
+    font-size: 0.8em;
 }
-
-
-#comments p{
-	padding-top: 2px;
-	padding-bottom: 2px;
-	
-	margin-bottom: 1px;
-	margin-top: 1px;
-}
-
-#comments hr{
-	margin-top:1px;
-	margin-bottom: 1px;
+#comment_form {
+    margin-left: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
 }
 
