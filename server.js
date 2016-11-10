@@ -44,16 +44,14 @@ function createTemplate (data) {
               <div>
                   ${date.toDateString()}
               </div>
-              <div class = "para">
-                ${content}
-              <label>Enter comments below</label></br>
-             <textarea name='comment' id='comment'></textarea><br>
-              <input type="submit" id="comment" value="Submit" class="btn btn-warning"></input>
-              <hr>
-              <p>Comments :<br>
-                <ul id="comments"></ul>
-              </p> 
+              <h4>Comments</h4>
+              <div id="comment_form">
               </div>
+              <div id="comments">
+                <center>Loading comments...</center>
+              </div>
+          </div>
+          <script type="text/javascript" src="/ui/article.js"></script>
           </div>
       </body>
     </html>
@@ -78,11 +76,7 @@ app.get('/test-db', function (req, res) {
    });
 });
 
-var counter = 0;
-app.get('/counter', function (req, res) {
-   counter = counter + 1;
-   res.send(counter.toString());
-});
+
 
 var names = [];
 app.get('/submit-name', function(req, res) { // /submit-name?name=xxxx
@@ -120,6 +114,14 @@ app.get('/ui/main.js', function (req, res) {
 
 app.get('/ui/pic1.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'pic1.jpg'));
+});
+
+app.get('/ui/pic2.jpg', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'pic2.jpg'));
+});
+
+app.get('/ui/:fileName', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
