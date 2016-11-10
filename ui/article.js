@@ -1,4 +1,4 @@
-// Eg: somasundarkr.imad.hasura-app.io/articles/article-one will result in article-one
+// Eg: somasundarkr.imad.hasura-app.io/articles/Article-One will result in Article-One
 var currentArticleTitle = window.location.pathname.split('/')[2];
 
 function loadCommentForm () {
