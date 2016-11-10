@@ -246,7 +246,7 @@ app.get('/ui/pic2.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'pic2.jpg'));
 });
 
-app.get('/ui/articles/:fileName', function (req, res) {
+app.get('/ui/:fileName', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
 
