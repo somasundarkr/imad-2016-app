@@ -105,7 +105,7 @@ function loadComments () {
                 comments.innerHTML = content;
         
             } else {
-                comments.innerHTML('Oops! Could not load comments!');
+                comments = document.getElementById("Oops! Could not load comments!").innerHTML;
             }
         }
     };
