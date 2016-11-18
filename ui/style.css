@@ -34,15 +34,12 @@ body{
   font-size: 40px;
 }
 .paragraph{
-    min-height:375px;
-    width:800px;
     padding-left:10px;
     color:darkblue;
     font-family: 'Aguafina Script';
     font-size:18.5px;
     font-weight:bold;
     text-align: justify;
-    background-color: goldenrod;
     float:left;
     }
 .article{
