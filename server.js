@@ -49,7 +49,7 @@ function createTemplate (data) {
                             <hr/>
                             <h4>Comments</h4>
                             <div id="comment_form"></div>
-                            <div id="Comments">
+                            <div id="comments">
                             <center>Loading comments...</center>
                             </div>
                           </div>
