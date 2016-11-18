@@ -47,11 +47,6 @@ function createTemplate (data) {
                             <div>${date.toDateString()}</div>
                             <div class = para>${content}</div>
                             <hr/>
-                            <h5>Submit a comment</h5>
-                            <textarea id="comment_text" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
-                            <br/>
-                            <input type="submit" id="submit" value="Submit" />
-                            <br/>
                             <h4>Comments</h4>
                             <div id="comment_form"></div>
                             <div id="comments">
