@@ -33,6 +33,14 @@ body{
  .section h2.title span {
   font-size: 40px;
 }
+.paragraph{
+    padding-left:10px;
+    color:darkblue;
+    font-family:sans-serif;
+    text-align: justify;
+    background-color: yellow;
+    float:left;
+    }
 .article{
     
     max-width: 800px;
