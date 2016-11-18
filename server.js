@@ -28,7 +28,7 @@ function createTemplate (data) {
     var heading = data.heading;
     var content = data.content;
     
-    var htmlTemplate = `<html><head><title>${title}</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><link href="/ui/style.css" rel="stylesheet" /></head><body><div class="container"><div><a href="/">Home</a></div><hr/><h3>${heading}</h3><div>${date.toDateString()}</div><div class = para>${content}<h4>Comments</h4><div id="comment_form"></div><div id="comments"><center>Loading comments...</center></div></div></div><script type="text/javascript" src="/ui/article.js></script></body></html>`;
+    var htmlTemplate = `<html><head><title>${title}</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><link href="/ui/style.css" rel="stylesheet" /></head><body><div class="container"><div><a href="/">Home</a></div><hr/><h3>${heading}</h3><div>${date.toDateString()}</div><div class = para>${content}<h4>Comments</h4><div id="comment_form"></div><div id="comments"><center>Loading comments...</center></div></div></div><script type="text/javascript" src="/ui/article.js"></script></body></html>`;
     return htmlTemplate;
 }
 
