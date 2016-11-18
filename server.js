@@ -45,7 +45,8 @@ function createTemplate (data) {
                             </div>
                             <hr/><h3>${heading}</h3>
                             <div>${date.toDateString()}</div>
-                            <div class = para>${content}
+                            <div class = para>${content}</div>
+                            <hr/>
                             <h4>Comments</h4>
                             <div id="comment_form"></div>
                             <div id="Comments">
