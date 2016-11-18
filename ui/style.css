@@ -34,6 +34,9 @@ body{
   font-size: 40px;
 }
 .paragraph{
+    min-height: 370px;
+    background-color:lightgoldenrodyellow;
+    width: 500px;
     padding-left:10px;
     color:darkblue;
     font-family: 'Aguafina Script';
