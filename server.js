@@ -53,8 +53,7 @@ function createTemplate (data) {
                             <br/>
                                     <input type="submit" id="submit" value="Submit" />
                             <br/>
-                            <input type="hidden" value="${id}" id="article_id" />
-				            </div>
+                             </div>
                           </div>
                             
                             <script type = "text/javascript" src = "/ui/article.js" ></script>
