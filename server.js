@@ -47,13 +47,20 @@ function createTemplate (data) {
                             <div>${date.toDateString()}</div>
                             <div class = para>${content}</div>
                             <hr/>
+                            <div>
                             <h4>Comments</h4>
-                            <div id="comment_form"></div>
-                            <div id="comments">
-                            <center>Loading comments...</center>
+                            <textarea id="comment" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+                            <br/>
+                                    <input type="submit" id="submit_comment" value="Submit" />
+                            <br/>
+                            <input type="hidden" value="${id}" id="article_id" />
+				            <strong id="loader_comments"><span class='glyphicon glyphicon-comment' aria-hidden='true'></span> Loading...</strong>
+				            <ul id="comment_list">
+				            </ul>
                             </div>
                           </div>
-                            <script type = "text/javascript" src = "/ui/article.js" ></script>
+                            <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+                            <script type = "text/javascript" src = "/ui/main.js" ></script>
                     </body>
     </html>`;
     return htmlTemplate;
