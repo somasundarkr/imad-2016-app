@@ -138,38 +138,3 @@ loadLogin();
 loadArticles();
 
 
-var rootURL=window.location.protocol+"//"+window.location.host; //http://somasundarkr.imad.hasura-app.io-->
-	console.log(rootURL);
-//comments specific
-
-	var comment=$("#comment");
-	var submit_comment=$("#submit_comment");
-	var comment_list=$("#comment_list");
-	var comments_loader=$("#loader_comments");
-	submit_comment.click(function(){
-		var comment_value=comment.val();
-		if(comment_value.length>0){
-			var article_id=$("#article_id").val();
-			comment.css("outline","none");
-			comments_loader.show();
-			$.getJSON(rootURL+"/submit",{id:article_id,comment:comment_value}).done(function(comments){
-				if(comments.content){
-					comments_loader.fadeOut("slow");
-					var list="";
-					for(var i=comments.content.length-1;i>=0;i--){
-						if(comments.id[i]==article_id){
-							list+="<li><span class='glyphicon glyphicon-comment' aria-hidden='true'></span> "+escapeHtml(comments.content[i])+"<div class='text-small'><span class='glyphicon glyphicon-time' aria-hidden='true'></span> "+escapeHtml(comments.date[i])+"</div></li>";
-						}
-					}
-					comment_list.html(list);
-				}
-			}).fail(function(){
-				comments_loader.fadeOut("slow");
-				comment_list.html("<li><div class='alert-error'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span> Error loading comments!<div></li>");
-			});
-		}else{
-			comment.focus();
-			comment.css("outline","1px solid #9b302e");
-		}
-	});
-});
