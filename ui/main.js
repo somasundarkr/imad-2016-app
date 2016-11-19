@@ -138,7 +138,7 @@ loadLogin();
 loadArticles();
 
 
-var rootURL=window.location.protocol+"//"+window.location.host;//http://somasundarkr.imad.hasura-app.io
+var rootURL=window.location.protocol+"//"+window.location.host; //http://somasundarkr.imad.hasura-app.io-->
 	console.log(rootURL);
 //comments specific
 
