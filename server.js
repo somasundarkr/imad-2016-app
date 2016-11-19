@@ -49,9 +49,9 @@ function createTemplate (data) {
                             <hr/>
                             <div>
                             <h4>Comments</h4>
-                            <textarea id="comment" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
+                            <textarea id="comments" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
                             <br/>
-                                    <input type="submit" id="submit_comment" value="Submit" />
+                                    <input type="submit" id="submit" value="Submit" />
                             <br/>
                             <input type="hidden" value="${id}" id="article_id" />
 				            </div>
