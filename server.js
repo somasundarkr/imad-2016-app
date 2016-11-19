@@ -5,10 +5,7 @@ var Pool = require('pg').Pool;
 var crypto = require('crypto');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var comment=$("#comment");
-var submit_comment=$("#submit_comment");
-var comment_list=$("#comment_list");
-var comments_loader=$("#loader_comments");
+
 var config = {
     user: 'somasundarkr',
     database: 'somasundarkr',
@@ -57,49 +54,14 @@ function createTemplate (data) {
                                     <input type="submit" id="submit_comment" value="Submit" />
                             <br/>
                             <input type="hidden" value="${id}" id="article_id" />
-				            <strong id="loader_comments"><span class='glyphicon glyphicon-comment' aria-hidden='true'></span> Loading...</strong>
-				            <ul id="comment_list">
-				            </ul>
-                            </div>
+				            </div>
                           </div>
-                            <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-                            <script type = "text/javascript" src = "/ui/main.js" ></script>
+                            
+                            <script type = "text/javascript" src = "/ui/article.js" ></script>
                     </body>
     </html>`;
     return htmlTemplate;
 }
-var rootURL=window.location.protocol+"//"+window.location.host; //http://somasundarkr.imad.hasura-app.io-->
-	console.log(rootURL);
-//comments specific
-
-	
-	submit_comment.click(function(){
-		var comment_value=comment.val();
-		if(comment_value.length>0){
-			var article_id=$("#article_id").val();
-			comment.css("outline","none");
-			comments_loader.show();
-			$.getJSON(rootURL+"/submit",{id:article_id,comment:comment_value}).done(function(comments){
-				if(comments.content){
-					comments_loader.fadeOut("slow");
-					var list="";
-					for(var i=comments.content.length-1;i>=0;i--){
-						if(comments.id[i]==article_id){
-							list+="<li><span class='glyphicon glyphicon-comment' aria-hidden='true'></span> "+escapeHtml(comments.content[i])+"<div class='text-small'><span class='glyphicon glyphicon-time' aria-hidden='true'></span> "+escapeHtml(comments.date[i])+"</div></li>";
-						}
-					}
-					comment_list.html(list);
-				}
-			}).fail(function(){
-				comments_loader.fadeOut("slow");
-				comment_list.html("<li><div class='alert-error'><span class='glyphicon glyphicon-exclamation-sign' aria-hidden='true'></span> Error loading comments!<div></li>");
-			});
-		}else{
-			comment.focus();
-			comment.css("outline","1px solid #9b302e");
-		}
-	});
-});
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
