@@ -17,6 +17,7 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 app.use(bodyParser.json());
+
 app.use(session({
     secret: 'someRandomSecretValue',
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30}
@@ -29,14 +30,17 @@ function createTemplate (data) {
     var content = data.content;
     
     var htmlTemplate = `
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
             <head>
-                    <title>${title}</title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                    <link href="/ui/style.css" rel="stylesheet" />
+            <title>${title}</title>
+                    
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            
+            <link href="/ui/style.css" rel="stylesheet" />
             </head>
                     <body>
                         <div class="container">
@@ -45,25 +49,25 @@ function createTemplate (data) {
                             </div>
                             <hr/><h3>${heading}</h3>
                             <div>${date.toDateString()}</div>
+                        <article>
                             <div class = para>${content}</div>
                             <hr/>
                             <div>
-                            <h4>Comments</h4>
-                            <textarea id="comments" rows="5" cols="100" placeholder="Enter your comment here..."></textarea>
-                            <br/>
-                                    <input type="submit" id="submit" value="Submit" />
-                            <br/>
+                            <hr>
+                            <h2>Comments</h2>
+                            <div id="comment_form">
+                            </div>
+                            <div id="comments">
+                            <center>Loading comments....</center>
                              </div>
                           </div>
-                            
-                            <script type = "text/javascript" src = "/ui/article.js" ></script>
+                      </article>
+                    <script type="text/javascript" src="article.js"></script>
                     </body>
-    </html>`;
+    </html>
+    `;
     return htmlTemplate;
 }
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
 
 function hash (input, salt) {
     // How do we create a hash?
@@ -204,6 +208,12 @@ app.post('/submit-comment/:articleName', function (req, res) {
     }
 });
 
+var counter = 0;
+app.get('/counter',function(req,res){
+    counter = counter+1;
+   res.send(counter.toString()); 
+});
+
 app.get('/articles/:articleName', function (req, res) {
   // SELECT * FROM article WHERE title = '\'; DELETE WHERE a = \'asdf'
   pool.query("SELECT * FROM article WHERE title = $1", [req.params.articleName], function (err, result) {
@@ -220,6 +230,14 @@ app.get('/articles/:articleName', function (req, res) {
   });
 });
 
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+});
+
+app.get('/ui/:fileName', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
+});
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 });
@@ -228,6 +246,9 @@ app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
 });
 
+app.get('/article.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'article.js'));
+});
 
 app.get('/ui/pic1.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'pic1.jpg'));
@@ -235,10 +256,6 @@ app.get('/ui/pic1.jpg', function (req, res) {
 
 app.get('/ui/pic2.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'pic2.jpg'));
-});
-
-app.get('/ui/:fileName', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
 
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
