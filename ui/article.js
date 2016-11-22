@@ -89,7 +89,7 @@ function loadComments () {
         }
     };
     
-    request.open('GET', '/get-comments/' + currentArticleTitle, true);
+    request.open('GET', 'http://somasundarkr.imad.hasura-app.io/get-comments/' + currentArticleTitle, true);
     request.send(null);
 }
 
