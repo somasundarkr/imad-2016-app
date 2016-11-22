@@ -1,5 +1,3 @@
-var currentArticleTitle = window.location.pathname.split('/')[2];
-
 function loadCommentForm () {
     var commentFormHtml = `
         <h5>Submit a comment</h5>
@@ -89,6 +87,7 @@ function loadComments () {
         }
     };
     
+    var currentArticleTitle = window.location.pathname.split('/')[2];
     request.open('GET', '/get-comments' + currentArticleTitle, true);
     request.send(null);
 }
