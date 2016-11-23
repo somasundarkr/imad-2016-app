@@ -230,13 +230,6 @@ app.post('/create-user', function (req, res) {
    });
 });
 
-
-app.get('/logout', function (req, res) {
-   delete req.session.auth;
-   res.send('<html><body>Logged out!<br/><br/><a href="/">Back to home</a></body></html>');
-});
-
-
 app.get('/ui/:fileName', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
@@ -257,6 +250,10 @@ app.get('/ui/pic1.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'pic1.jpg'));
 });
 
+app.get('/logout', function (req, res) {
+   delete req.session.auth;
+   res.send('<html><body>Logged out!<br/><br/><a href="/">Back to home</a></body></html>');
+});
 var port = 8080; // Use 8080 for local development because you might already have apache running on 80
 app.listen(8080, function () {
   console.log(`IMAD course app listening on port ${port}!`);
