@@ -1,3 +1,6 @@
+var currentArticleTitle = window.location.pathname.split('/')[2];
+
+
 function loadCommentForm () {
     var commentFormHtml = `
         <h5>Submit a comment</h5>
@@ -7,6 +10,7 @@ function loadCommentForm () {
         <br/>
         `;
     document.getElementById('comment_form').innerHTML = commentFormHtml;
+    
     
     // Submit username/password to login
     var submit = document.getElementById('submit');
@@ -29,6 +33,8 @@ function loadCommentForm () {
           }
         };
         
+        
+        
         // Make the request
         var comment = document.getElementById('comment_text').value;
         request.open('POST', '/submit-comment/' + currentArticleTitle, true);
@@ -38,6 +44,9 @@ function loadCommentForm () {
         
     };
 }
+
+
+
 
 function loadLogin () {
     // Check if the user is already logged in
@@ -54,6 +63,9 @@ function loadLogin () {
     request.send(null);
 }
 
+
+
+
 function escapeHTML (text)
 {
     var $text = document.createTextNode(text);
@@ -61,6 +73,9 @@ function escapeHTML (text)
     $div.appendChild($text);
     return $div.innerHTML;
 }
+
+
+
 
 function loadComments () {
         // Check if the user is already logged in
@@ -73,12 +88,13 @@ function loadComments () {
                 var commentsData = JSON.parse(this.responseText);
                 for (var i=0; i< commentsData.length; i++) {
                     var time = new Date(commentsData[i].timestamp);
-                    content += `<div class="comment">
+                    
+                    content += ` <div class="comment">
                         <p>${escapeHTML(commentsData[i].comment)}</p>
                         <div class="commenter">
                             ${commentsData[i].username} - ${time.toLocaleTimeString()} on ${time.toLocaleDateString()} 
                         </div>
-                    </div>`;
+                    </div> `;
                 }
                 comments.innerHTML = content;
             } else {
@@ -87,7 +103,7 @@ function loadComments () {
         }
     };
     
-    var currentArticleTitle = window.location.pathname.split('/')[2];
+    
     request.open('GET', '/get-comments' + currentArticleTitle, true);
     request.send(null);
 }
