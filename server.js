@@ -48,7 +48,7 @@ function createTemplate (data) {
           <!-- Fontawesome library -->
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
             
-            <script src = "/article.js" type = " text/javascript "></script>
+            <script src = "/ui/article.js" type = " text/javascript "></script>
             </head>
                     <body>
                         <div class="container">
