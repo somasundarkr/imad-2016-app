@@ -32,10 +32,6 @@ function loadCommentForm () {
                 submit.value = 'Submit';
           }
         };
-        
-        
-        
-        
         // Make the request
         var comment = document.getElementById('comment_text').value;
         request.open('POST', '/submit-comment/' + currentArticleTitle, true);
