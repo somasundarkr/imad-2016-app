@@ -104,7 +104,7 @@ function loadComments () {
     };
     
     
-    request.open('GET', 'http://somasundarkr.imad.hasura-app.io/get-comments' + currentArticleTitle, true);
+    request.open('GET', 'http://somasundarkr.imad.hasura-app.io/get-comments/:articleName' + currentArticleTitle, true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.send(null);
 }
