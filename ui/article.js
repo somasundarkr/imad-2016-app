@@ -98,7 +98,7 @@ function loadComments () {
                 }
                 comments.innerHTML = content;
             } else {
-                comments.innerHTML('Oops! Could not load comments!');
+                comments.innerHTML = 'Oops! Could not load comments!';
             }
         }
     };
