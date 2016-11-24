@@ -66,7 +66,7 @@ function createTemplate (data) {
                             <div id="comment_form">
                             
                             </div>
-                            <div id="comments">
+                            <div id="Comments">
                             
                             <center>Loading comments....</center>
                             
