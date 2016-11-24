@@ -37,7 +37,7 @@ function loadCommentForm () {
         
         // Make the request
         var comment = document.getElementById('comment_text').value;
-        request.open('POST', 'http://somasundarkr.imad.hasura-app.io/submit-comment/' + currentArticleTitle, true);
+        request.open('POST', 'http://somasundarkr.imad.hasura-app.io/submit-comment/:articleName' + currentArticleTitle, true);
         request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({comment: comment}));  
         submit.value = 'Submitting...';
