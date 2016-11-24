@@ -38,7 +38,6 @@ function loadCommentForm () {
         // Make the request
         var comment = document.getElementById('comment_text').value;
         request.open('POST', 'http://somasundarkr.imad.hasura-app.io/articles/submit-comment/:articleName' + currentArticleTitle, true);
-        request.setRequestHeader('Content-Type', 'application/json');
         request.send(JSON.stringify({comment: comment}));  
         submit.value = 'Submitting...';
         
@@ -105,7 +104,6 @@ function loadComments () {
     
     
     request.open('GET', 'http://somasundarkr.imad.hasura-app.io/articles/get-comments/:articleName' + currentArticleTitle, true);
-    request.setRequestHeader('Content-Type', 'application/json');
     request.send(null);
 }
 
