@@ -94,7 +94,8 @@ function loadComments () {
                 }
                 comments.innerHTML = content;
             } else {
-              document.getElementById(comments).innerHTML = "Oops! Could not load comments!";
+                comments.innerHTML("Oops! could not load comments!");
+              //document.getElementById(comments).innerHTML = "Oops! Could not load comments!";
             }
         }
     };
