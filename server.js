@@ -241,6 +241,12 @@ app.post('/create-user', function (req, res) {
 }
 });
 
+var counter = 296;
+app.get('/counter',function(req,res){
+    counter = counter+1;
+   res.send(counter.toString()); 
+});
+
 app.get('/ui/:fileName', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', req.params.fileName));
 });
