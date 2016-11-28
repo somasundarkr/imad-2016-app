@@ -52,7 +52,7 @@ body{
     font-size:15px;
     font-weight:bold;
     text-align: justify;
-    float:inherit;
+    float:none;
     }
 .article{
     
