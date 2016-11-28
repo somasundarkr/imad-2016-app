@@ -144,6 +144,9 @@ app.post('/login', function (req, res) {
    var username = req.body.username;
    var password = req.body.password;
    
+   if(!username.trim() || !password.trim()){
+     res.status(400).send('Username or password field blank.');   //Err if blank,tabs and space detected.
+  } else
    pool.query('SELECT * FROM "user" WHERE username = $1', [username], function (err, result) {
       if (err) {
           res.status(500).send(err.toString());
@@ -170,6 +173,7 @@ app.post('/login', function (req, res) {
               }
           }
       }
+   
    });
 });
 
